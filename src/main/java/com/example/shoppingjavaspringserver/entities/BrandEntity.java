@@ -3,7 +3,7 @@ package com.example.shoppingjavaspringserver.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "brand", schema = "mrx_shop_localhost", catalog = "")
+@Table(name = "brand", schema = "shopmanagement", catalog = "")
 public class BrandEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
