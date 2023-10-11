@@ -1,5 +1,4 @@
 package com.example.shoppingjavaspringserver.model.request;
-
 import com.example.shoppingjavaspringserver.entities.CustomerEntity;
 import com.google.gson.Gson;
 import lombok.Data;

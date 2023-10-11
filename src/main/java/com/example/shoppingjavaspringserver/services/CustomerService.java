@@ -6,7 +6,7 @@ import com.example.shoppingjavaspringserver.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CustomerService {
+public class    CustomerService {
     final CustomerRepository customerRepository;
 
     public CustomerService(CustomerRepository customerRepository) {
