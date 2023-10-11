@@ -14,7 +14,7 @@ public class OrdersEntity {
     private int id;
     @Basic
     @Column(name = "payment_method")
-    private Integer paymentMethod;
+    private String paymentMethod;
     @Basic
     @Column(name = "payment_details")
     private String paymentDetails;
@@ -30,11 +30,11 @@ public class OrdersEntity {
         this.id = id;
     }
 
-    public Integer getPaymentMethod() {
+    public String getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(Integer paymentMethod) {
+    public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 
