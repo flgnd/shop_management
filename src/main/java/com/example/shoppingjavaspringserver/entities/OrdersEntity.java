@@ -2,32 +2,32 @@ package com.example.shoppingjavaspringserver.entities;
 
 import jakarta.persistence.*;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "orders", schema = "shopmanagement", catalog = "")
 public class OrdersEntity {
-    @Basic
-    @Column(name = "order_date")
-    private Timestamp orderDate;
-    @Basic
-    @Column(name = "payment_method")
-    private Integer paymentMethod;
-    @Basic
-    @Column(name = "payment_detail")
-    private Integer paymentDetail;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private int id;
+    @Basic
+    @Column(name = "payment_method")
+    private Integer paymentMethod;
+    @Basic
+    @Column(name = "payment_details")
+    private String paymentDetails;
+    @Basic
+    @Column(name = "date")
+    private Date date;
 
-    public Timestamp getOrderDate() {
-        return orderDate;
+    public int getId() {
+        return id;
     }
 
-    public void setOrderDate(Timestamp orderDate) {
-        this.orderDate = orderDate;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Integer getPaymentMethod() {
@@ -38,20 +38,20 @@ public class OrdersEntity {
         this.paymentMethod = paymentMethod;
     }
 
-    public Integer getPaymentDetail() {
-        return paymentDetail;
+    public String getPaymentDetails() {
+        return paymentDetails;
     }
 
-    public void setPaymentDetail(Integer paymentDetail) {
-        this.paymentDetail = paymentDetail;
+    public void setPaymentDetails(String paymentDetails) {
+        this.paymentDetails = paymentDetails;
     }
 
-    public int getId() {
-        return id;
+    public Date getDate() {
+        return date;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override
@@ -59,11 +59,11 @@ public class OrdersEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrdersEntity that = (OrdersEntity) o;
-        return id == that.id && Objects.equals(orderDate, that.orderDate) && Objects.equals(paymentMethod, that.paymentMethod) && Objects.equals(paymentDetail, that.paymentDetail);
+        return id == that.id && Objects.equals(paymentMethod, that.paymentMethod) && Objects.equals(paymentDetails, that.paymentDetails) && Objects.equals(date, that.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderDate, paymentMethod, paymentDetail, id);
+        return Objects.hash(id, paymentMethod, paymentDetails, date);
     }
 }

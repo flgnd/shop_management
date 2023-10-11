@@ -12,11 +12,11 @@ public class CommentEntity {
     @Column(name = "id")
     private int id;
     @Basic
-    @Column(name = "content")
-    private String content;
-    @Basic
     @Column(name = "rating")
-    private int rating;
+    private Integer rating;
+    @Basic
+    @Column(name = "content")
+    private Integer content;
 
     public int getId() {
         return id;
@@ -26,20 +26,20 @@ public class CommentEntity {
         this.id = id;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
+    }
+
+    public Integer getContent() {
+        return content;
+    }
+
+    public void setContent(Integer content) {
+        this.content = content;
     }
 
     @Override
@@ -47,11 +47,11 @@ public class CommentEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CommentEntity that = (CommentEntity) o;
-        return id == that.id && rating == that.rating && Objects.equals(content, that.content);
+        return id == that.id && Objects.equals(rating, that.rating) && Objects.equals(content, that.content);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, content, rating);
+        return Objects.hash(id, rating, content);
     }
 }

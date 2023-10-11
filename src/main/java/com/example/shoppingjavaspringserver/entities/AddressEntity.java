@@ -15,6 +15,15 @@ public class AddressEntity {
     @Basic
     @Column(name = "type")
     private String type;
+    @Basic
+    @Column(name = "name")
+    private String name;
+    @Basic
+    @Column(name = "phone_number")
+    private Integer phoneNumber;
+    @Basic
+    @Column(name = "email")
+    private String email;
 
     public int getId() {
         return id;
@@ -60,5 +69,29 @@ public class AddressEntity {
         result = 31 * result + (addressFull != null ? addressFull.hashCode() : 0);
         result = 31 * result + (type != null ? type.hashCode() : 0);
         return result;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(Integer phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

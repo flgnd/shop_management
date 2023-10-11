@@ -15,6 +15,9 @@ public class BrandEntity {
     @Basic
     @Column(name = "total_quantity")
     private Integer totalQuantity;
+    @Basic
+    @Column(name = "name")
+    private String name;
 
     public int getId() {
         return id;
@@ -61,5 +64,13 @@ public class BrandEntity {
         result = 31 * result + (brandName != null ? brandName.hashCode() : 0);
         result = 31 * result + (totalQuantity != null ? totalQuantity.hashCode() : 0);
         return result;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
