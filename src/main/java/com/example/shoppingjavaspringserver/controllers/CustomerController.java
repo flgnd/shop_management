@@ -4,6 +4,7 @@ import com.example.shoppingjavaspringserver.entities.CustomerEntity;
 import com.example.shoppingjavaspringserver.model.request.CustomerRequest;
 import com.example.shoppingjavaspringserver.services.CustomerService;
 import com.google.gson.Gson;
+
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,11 +15,27 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/customer/{id}")
+    @GetMapping("customer/abc")
     @ResponseBody
-    public String getCustomer(@PathVariable("id")int id){
+    public String getCustomer(@RequestParam(value="id", required=true) int id){
         return new Gson().toJson(customerService.getById(id));
     }
+    @GetMapping("customer/abd")
+    @ResponseBody
+    public String getCustomer(@RequestParam(value="name", required=true) String name){
+        return new Gson().toJson(customerService.getByName(name));
+    }
+    @GetMapping("customer/abe")
+    @ResponseBody
+    public String getCustomerbyEmail(@RequestParam(value="email", required=true) String email){
+        return new Gson().toJson(customerService.getByEmail(email));
+    }
+    @GetMapping("customer/all")
+    @ResponseBody
+    public String getALLCustomer(){
+        return new Gson().toJson(customerService.getAll());
+    }
+
 
     @PostMapping("/customer")
     @ResponseBody
@@ -26,8 +43,13 @@ public class CustomerController {
         return customerService.create(request);
     }
 
-    @PutMapping("/customer")
-    public CustomerEntity updateCustomer(){
-        return null;
+    @PutMapping("/customer/{id}")
+    public CustomerEntity updateCustomer(@PathVariable int id, @RequestBody CustomerRequest customerRequest){
+        CustomerEntity updateCustomer = customerService.findById(id);
+//                .orElseThrow(()-> new ResourceNotFoundException("Employee not exist with id: " + id));
+
+        updateCustomer.setName(customerRequest.getName());
+
+        return customerService.save(updateCustomer) ;
     }
 }
