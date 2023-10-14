@@ -7,7 +7,7 @@ import lombok.Data;
 public class ItemsRequest {
     int quantity;
     int discount;
-    String price;
+    int price;
     String status;
 
     public ItemsEntity toEntity(){

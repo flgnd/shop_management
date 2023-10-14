@@ -13,7 +13,7 @@ public class ItemsEntity {
     private int id;
     @Basic
     @Column(name = "price")
-    private String price;
+    private int price;
     @Basic
     @Column(name = "quantity")
     private int quantity;
@@ -32,11 +32,11 @@ public class ItemsEntity {
         this.id = id;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

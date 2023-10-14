@@ -36,7 +36,7 @@ public class ItemsService {
     }
 
     public List<ItemsEntity> getByPrice(int price1, int price2) {
-        return itemsRepository.findItemsByPrice(price1,price2);
+        return itemsRepository.findItemsByPrice(price1 , price2);
 
     }
 }

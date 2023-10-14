@@ -13,6 +13,7 @@ public interface ItemsRepository extends JpaRepository<ItemsEntity, Integer> {
     @Query("SELECT u FROM ItemsEntity u WHERE u.discount = :discount1  or u.discount = :discount2 ")
     List<ItemsEntity> findItemsByDoubleDiscount(@Param("discount1") Integer discount1 , @Param("discount2") Integer discount2 );
 
-    List<ItemsEntity> findItemsByPrice(int price1, int price2);
+    @Query("SELECT u FROM ItemsEntity u WHERE u.price BETWEEN :price1 AND :price2 ")
+    List<ItemsEntity> findItemsByPrice(@Param("price1") Integer price1 , @Param("price2") Integer price2 );
 }
 

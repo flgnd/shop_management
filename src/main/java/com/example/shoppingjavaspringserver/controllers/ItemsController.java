@@ -24,6 +24,11 @@ public class ItemsController {
     public String getItemsByDoubleDiscount(@RequestParam(value="discount1", required=true) int discount1 , @RequestParam(value="discount2", required=true) int discount2){
         return new Gson().toJson(itemsService.getByDoubleDiscount(discount1, discount2));
     }
+    @GetMapping("items/adc")
+    @ResponseBody
+    public String getItemsByPrice(@RequestParam(value="price1", required=true) int price1 , @RequestParam(value="price2", required=true) int price2){
+        return new Gson().toJson(itemsService.getByPrice(price1, price2));
+    }
     @GetMapping("items/abe")
     @ResponseBody
     public String getItemsByDoubleDiscount(@RequestParam(value="discount", required=true) int discount){
@@ -46,9 +51,4 @@ public class ItemsController {
         return new Gson().toJson(itemsService.getAll());
     }
 
-    @GetMapping("items/price")
-    @ResponseBody
-    public String getItemsByPrice(@RequestParam(value="price1", required=true) int price1 , @RequestParam(value="price2", required=true) int price2){
-        return new Gson().toJson(itemsService.getByPrice(price1, price2));
-    }
 }
