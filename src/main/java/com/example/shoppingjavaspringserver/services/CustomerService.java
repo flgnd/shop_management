@@ -35,9 +35,9 @@ public class CustomerService {
         return customerRepository.findById(id).get();
     }
 
-    public CustomerEntity save(CustomerRequest customerRequest) {
-        return customerRepository.save(customerRequest.toEntity());
-    }
+//    public CustomerEntity save(CustomerRequest customerRequest) {
+//        return customerRepository.save(customerRequest.toEntity());
+//    }
 
     public CustomerEntity save(CustomerEntity updateCustomer) {
         return customerRepository.save(updateCustomer);

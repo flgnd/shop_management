@@ -19,7 +19,16 @@ public class ItemsController {
     public String getItems(@PathVariable("id")int id){
         return new Gson().toJson(itemsService.getById(id));
     }
-
+    @GetMapping("items/abd")
+    @ResponseBody
+    public String getItemsByDoubleDiscount(@RequestParam(value="discount1", required=true) int discount1 , @RequestParam(value="discount2", required=true) int discount2){
+        return new Gson().toJson(itemsService.getByDoubleDiscount(discount1, discount2));
+    }
+    @GetMapping("items/abe")
+    @ResponseBody
+    public String getItemsByDoubleDiscount(@RequestParam(value="discount", required=true) int discount){
+        return new Gson().toJson(itemsService.getByDiscount(discount));
+    }
     @PostMapping("/items")
     @ResponseBody
     public ItemsEntity createCustomer(@RequestBody ItemsRequest request){
@@ -29,5 +38,17 @@ public class ItemsController {
     @PutMapping("/items")
     public ItemsEntity updateCustomer(){
         return null;
+    }
+
+    @GetMapping("items/all")
+    @ResponseBody
+    public String getALLCustomer(){
+        return new Gson().toJson(itemsService.getAll());
+    }
+
+    @GetMapping("items/price")
+    @ResponseBody
+    public String getItemsByPrice(@RequestParam(value="price1", required=true) int price1 , @RequestParam(value="price2", required=true) int price2){
+        return new Gson().toJson(itemsService.getByPrice(price1, price2));
     }
 }
