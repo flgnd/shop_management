@@ -7,12 +7,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrdersService {
     final OrdersRepository ordersRepository;
-
     public OrdersService(OrdersRepository ordersRepository) {
         this.ordersRepository = ordersRepository;
     }
-
-
     public OrdersEntity getById(int id){
         return ordersRepository.findById(id).get();
     }
