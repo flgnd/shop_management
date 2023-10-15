@@ -36,12 +36,20 @@ public class ItemsEntity {
         return price;
     }
 
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public void setQuantity(int quantity) {

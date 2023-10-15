@@ -19,7 +19,7 @@ public class AdminController {
     public String getAdmin(@PathVariable("id")int id){
         return new Gson().toJson(adminService.getById(id));
     }
-    @PostMapping("/customer")
+    @PostMapping("/admin/customer")
     @ResponseBody
     public AdminEntity creatAdmin(@RequestBody AdminRequest request){
         return adminService.create(request);

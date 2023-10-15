@@ -20,6 +20,9 @@ public class OrderDetailsEntity {
     @Basic
     @Column(name = "total")
     private Integer total;
+    @Basic
+    @Column(name = "column_name")
+    private Integer columnName;
 
     public Integer getQuantity() {
         return quantity;
@@ -64,5 +67,13 @@ public class OrderDetailsEntity {
     @Override
     public int hashCode() {
         return Objects.hash(quantity, id, price, total);
+    }
+
+    public Integer getColumnName() {
+        return columnName;
+    }
+
+    public void setColumnName(Integer columnName) {
+        this.columnName = columnName;
     }
 }

@@ -9,8 +9,11 @@ import java.util.List;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<CustomerEntity, Integer> {
-    List<CustomerEntity> findByName(String name);
+    List<CustomerEntity>  findByName(String name);
     @Query("select u from CustomerEntity u where u.email = :email")
     CustomerEntity myCustomQuery(@Param("email") String email);
 
+
+    @Query("select u from CustomerEntity u where u.email = :email and u.name = :name")
+    List<CustomerEntity> findDoubleParam(@Param("name") String name, @Param("email") String email);
 }

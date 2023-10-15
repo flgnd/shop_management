@@ -20,11 +20,11 @@ public class CustomerController {
     public String getCustomer(@RequestParam(value="id", required=true) int id){
         return new Gson().toJson(customerService.getById(id));
     }
-    @GetMapping("customer/abd")
-    @ResponseBody
-    public String getCustomer(@RequestParam(value="name", required=true) String name){
-        return new Gson().toJson(customerService.getByName(name));
-    }
+//    @GetMapping("customer/abd")
+//    @ResponseBody
+//    public String getCustomer(@RequestParam(value="name", required=true) String name){
+//        return new Gson().toJson(customerService.getByName(name));
+//    }
     @GetMapping("customer/abe")
     @ResponseBody
     public String getCustomerbyEmail(@RequestParam(value="email", required=true) String email){
@@ -52,4 +52,18 @@ public class CustomerController {
 
         return customerService.save(updateCustomer) ;
     }
+//    @GetMapping("/customer")
+//    public String helloCustomer(@RequestParam(name = "name") String name){
+//        return new Gson().toJson(customerService.findByName(name));
+//    }
+    @GetMapping("/customer/findlAll")
+    public String finalAll (){
+        return new Gson().toJson(customerService.findAll());
+    }
+
+    @GetMapping("/customer/findDoubleParam")
+    public String findDoubleParam(@RequestParam(name = "name") String name, @RequestParam String email){
+        return new Gson().toJson(customerService.findDoubleParam(name, email));
+    }
 }
+

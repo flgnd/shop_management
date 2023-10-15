@@ -20,9 +20,9 @@ public class CustomerService {
     }
 
 
-    public List<CustomerEntity> getByName(String name){
-        return customerRepository.findByName(name);
-    }
+//    public List<CustomerEntity> getByName(String name){
+//        return customerRepository.findByName(name);
+//    }
     public CustomerEntity getByEmail(String email){
         return customerRepository.myCustomQuery(email);
     }
@@ -46,4 +46,17 @@ public class CustomerService {
     public List<CustomerEntity> getAll() {
         return customerRepository.findAll() ;
     }
+
+    public List<CustomerEntity> findByName(String name) {
+        return customerRepository.findByName(name);
+    }
+
+    public List<CustomerEntity> findAll() {
+        return customerRepository.findAll();
+    }
+
+    public List<CustomerEntity> findDoubleParam(String name, String email) {
+        return customerRepository.findDoubleParam(name, email);
+    }
+
 }

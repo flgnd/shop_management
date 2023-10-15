@@ -27,6 +27,12 @@ public class AdminEntity {
     @Basic
     @Column(name = "registraion_date")
     private Timestamp registraionDate;
+    @Basic
+    @Column(name = "phone")
+    private Integer phone;
+    @Basic
+    @Column(name = "registration_date")
+    private Timestamp registrationDate;
 
     public int getId() {
         return id;
@@ -87,5 +93,21 @@ public class AdminEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, userName, password, phoneNumber, registraionDate);
+    }
+
+    public Integer getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Integer phone) {
+        this.phone = phone;
+    }
+
+    public Timestamp getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(Timestamp registrationDate) {
+        this.registrationDate = registrationDate;
     }
 }
