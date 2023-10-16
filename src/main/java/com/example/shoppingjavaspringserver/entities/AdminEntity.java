@@ -1,7 +1,5 @@
 package com.example.shoppingjavaspringserver.entities;
-
 import jakarta.persistence.*;
-
 import java.sql.Timestamp;
 import java.util.Objects;
 

@@ -13,7 +13,6 @@ public class OrdersController {
     public OrdersController(OrdersService ordersService) {
         this.ordersService = ordersService;
     }
-
     @GetMapping("/orders/{id}")
     @ResponseBody
     public String getOrders(@PathVariable("id")int id){
@@ -24,7 +23,6 @@ public class OrdersController {
     public OrdersEntity createCustomer(@RequestBody OrdersRequest request){
         return ordersService.create(request);
     }
-
     @PutMapping("/orders")
     public OrdersEntity updateOrders(){
         return null;

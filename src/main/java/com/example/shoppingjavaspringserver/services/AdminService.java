@@ -10,11 +10,9 @@ public class AdminService {
     public AdminService(AdminRepository adminRepository) {
         this.adminRepository = adminRepository;
     }
-
     public AdminEntity getById(int id){
         return adminRepository.findById(id).get();
     }
-
     public AdminEntity create(AdminRequest adminRequest){
         return adminRepository.save(adminRequest.toEntity());
     }

@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ShoppingJavaSpringServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(ShoppingJavaSpringServerApplication.class, args);
+
     }
 
 }
