@@ -4,6 +4,7 @@ import com.example.shoppingjavaspringserver.entities.CustomerEntity;
 import com.example.shoppingjavaspringserver.model.request.CustomerRequest;
 import com.example.shoppingjavaspringserver.services.CustomerService;
 import com.google.gson.Gson;
+import org.hibernate.annotations.Parameter;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,7 +28,7 @@ public class CustomerController {
     }
 
     @PutMapping("/customer")
-    public CustomerEntity updateCustomer(){
+    public CustomerEntity updateCustomer(@Parameter()){
         return null;
     }
 }
