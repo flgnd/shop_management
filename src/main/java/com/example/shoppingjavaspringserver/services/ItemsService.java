@@ -18,7 +18,6 @@ public class ItemsService {
     public ItemsEntity getById(int id){
         return itemsRepository.findById(id).get();
     }
-
     public ItemsEntity create(ItemsRequest itemsRequest){
         return itemsRepository.save(itemsRequest.toEntity());
     }
