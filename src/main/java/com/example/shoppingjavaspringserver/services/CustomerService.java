@@ -46,4 +46,13 @@ public class CustomerService {
     public List<CustomerEntity> getAll() {
         return customerRepository.findAll() ;
     }
+
+    public CustomerEntity findByName(String name) {
+        return customerRepository.findByNameOfMethodPut(name);
+    }
+
+//    public CustomerEntity findByName(String name) {
+//
+//        return customerRepository.findByName(name);
+//    }
 }

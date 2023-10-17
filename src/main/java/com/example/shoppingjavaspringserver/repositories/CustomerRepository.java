@@ -13,4 +13,9 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Intege
     @Query("select u from CustomerEntity u where u.email = :email")
     CustomerEntity myCustomQuery(@Param("email") String email);
 
+    @Query("SELECT u FROM CustomerEntity u WHERE u.name = :name")
+    CustomerEntity findByNameOfMethodPut(@Param("name") String name);
+
+
+
 }

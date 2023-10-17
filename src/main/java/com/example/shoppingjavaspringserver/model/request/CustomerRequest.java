@@ -14,7 +14,6 @@ public class CustomerRequest {
         customerEntity.setName(this.getName());
         customerEntity.setPhoneNumber(this.getPhoneNumber());
         customerEntity.setEmail(this.getEmail());
-
         System.out.println(new Gson().toJson(customerEntity));
 
         return customerEntity;

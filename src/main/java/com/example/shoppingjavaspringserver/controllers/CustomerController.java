@@ -7,6 +7,8 @@ import com.google.gson.Gson;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class CustomerController {
     final CustomerService customerService;
@@ -51,5 +53,12 @@ public class CustomerController {
         updateCustomer.setName(customerRequest.getName());
 
         return customerService.save(updateCustomer) ;
+    }
+    @PutMapping("/customer/ade")
+    public CustomerEntity updateCustomerByName(@RequestParam(value="namex", required=true) String namex ,@RequestBody CustomerRequest customerRequest) {
+        CustomerEntity updateByNameCustomer = customerService.findByName(namex);
+        updateByNameCustomer.setName(customerRequest.getName());
+        return customerService.save(updateByNameCustomer) ;
+
     }
 }
