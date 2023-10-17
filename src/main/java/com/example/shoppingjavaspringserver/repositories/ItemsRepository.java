@@ -18,6 +18,8 @@ public interface ItemsRepository extends JpaRepository<ItemsEntity, Integer> {
 
     @Query("SELECT quantity FROM ItemsEntity ")
     List<ItemsEntity>findQuantity(@Param("price1") Integer price1 , @Param("price2") Integer price2 );
+    @Query("SELECT u FROM ItemsEntity  u WHERE u.id = :id")
+    ItemsEntity findByNameOfMethodPut(@Param("id") Integer id );
 
 }
 

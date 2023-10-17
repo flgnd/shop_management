@@ -30,6 +30,10 @@ public class CommentEntity {
         return rating;
     }
 
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
     public void setRating(Integer rating) {
         this.rating = rating;
     }

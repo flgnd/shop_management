@@ -58,6 +58,8 @@ public class CustomerController {
     public CustomerEntity updateCustomerByName(@RequestParam(value="namex", required=true) String namex ,@RequestBody CustomerRequest customerRequest) {
         CustomerEntity updateByNameCustomer = customerService.findByName(namex);
         updateByNameCustomer.setName(customerRequest.getName());
+        updateByNameCustomer.setEmail(customerRequest.getEmail());
+        updateByNameCustomer.setPhoneNumber(customerRequest.getPhoneNumber());
         return customerService.save(updateByNameCustomer) ;
 
     }

@@ -38,4 +38,13 @@ public class ItemsService {
         return itemsRepository.findItemsByPrice(price1 , price2);
 
     }
+
+    public ItemsEntity findByID(int id) {
+        return itemsRepository.findByNameOfMethodPut(id);
+    }
+
+    public ItemsEntity save(ItemsEntity updateItems) {
+
+        return itemsRepository.save(updateItems);
+    }
 }
