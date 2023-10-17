@@ -32,8 +32,8 @@ public class BrandController {
         BrandEntity updateBrandEntityName = brandService.findByName(name);
 
         updateBrandEntityName.setName(request.getName());
-        updateBrandEntityName.setTotalQuantity(request.getTotalQuantity());
-        updateBrandEntityName.setBrandName(request.getBrandName());
+//        updateBrandEntityName.setTotalQuantity(request.getTotalQuantity());
+//        updateBrandEntityName.setBrandName(request.getBrandName());
 
         return brandService.updateBrand(updateBrandEntityName);
     }
