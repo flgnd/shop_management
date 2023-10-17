@@ -51,8 +51,5 @@ public class CustomerService {
         return customerRepository.findByNameOfMethodPut(name);
     }
 
-//    public CustomerEntity findByName(String name) {
-//
-//        return customerRepository.findByName(name);
-//    }
+
 }
