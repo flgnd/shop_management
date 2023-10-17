@@ -3,6 +3,7 @@ package com.example.shoppingjavaspringserver.entities;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
@@ -21,6 +22,12 @@ public class OrdersEntity {
     @Basic
     @Column(name = "date")
     private Date date;
+    @Basic
+    @Column(name = "order_date")
+    private Timestamp orderDate;
+    @Basic
+    @Column(name = "payment_detail")
+    private Integer paymentDetail;
 
     public int getId() {
         return id;
@@ -65,5 +72,21 @@ public class OrdersEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, paymentMethod, paymentDetails, date);
+    }
+
+    public Timestamp getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(Timestamp orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public Integer getPaymentDetail() {
+        return paymentDetail;
+    }
+
+    public void setPaymentDetail(Integer paymentDetail) {
+        this.paymentDetail = paymentDetail;
     }
 }

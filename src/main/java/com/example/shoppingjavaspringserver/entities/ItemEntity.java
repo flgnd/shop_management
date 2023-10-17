@@ -14,6 +14,9 @@ public class ItemEntity {
     @Basic
     @Column(name = "image")
     private String image;
+    @Basic
+    @Column(name = "name")
+    private String name;
 
     public int getId() {
         return id;
@@ -41,6 +44,14 @@ public class ItemEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, image);
+        return Objects.hash(id, image,name);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

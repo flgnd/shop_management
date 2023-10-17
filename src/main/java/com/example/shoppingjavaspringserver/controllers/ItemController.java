@@ -1,6 +1,8 @@
 package com.example.shoppingjavaspringserver.controllers;
 
+import com.example.shoppingjavaspringserver.entities.CustomerEntity;
 import com.example.shoppingjavaspringserver.entities.ItemEntity;
+import com.example.shoppingjavaspringserver.model.request.CustomerRequest;
 import com.example.shoppingjavaspringserver.model.request.ItemRequest;
 import com.example.shoppingjavaspringserver.services.ItemService;
 import com.google.gson.Gson;
@@ -26,8 +28,12 @@ public class ItemController {
         return itemService.create(request);
     }
 
-    @PutMapping("/item")
-    public ItemEntity updateItem(){
-        return null;
+    @PutMapping("/item/abc")
+    public ItemEntity updateCustomerByName(@RequestParam(value="name", required=true) String name , @RequestBody ItemRequest itemRequest) {
+        ItemEntity updateItem = itemService.findByName(name);
+        updateItem.setName(itemRequest.getName());
+        updateItem.setImage(itemRequest.getImage());
+        return itemService.save(updateItem) ;
+
     }
 }
