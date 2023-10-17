@@ -37,6 +37,12 @@ public class BrandController {
 
         return brandService.updateBrand(updateBrandEntityName);
     }
+    @DeleteMapping("brand/kdnp")
+    @ResponseBody boolean deleteBrand(@RequestParam(value= "name", required = true)String name){
+        BrandEntity updateBrandEntityName = brandService.findByName(name);
+        return brandService.deleteBrand(updateBrandEntityName);
+    }
+
 
 
 

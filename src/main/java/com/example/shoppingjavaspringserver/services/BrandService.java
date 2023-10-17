@@ -31,4 +31,14 @@ public class BrandService {
     public BrandEntity updateBrand(BrandEntity brandEntity) {
         return brandRepository.save(brandEntity);
     }
+
+    public boolean deleteBrand(BrandEntity brandEntity) {
+        try {
+            brandRepository.delete(brandEntity);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
