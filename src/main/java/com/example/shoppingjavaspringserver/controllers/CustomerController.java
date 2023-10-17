@@ -27,9 +27,6 @@ public class CustomerController {
         return customerService.create(request);
     }
     @PutMapping("/customer")
-    public CustomerEntity updateCustomer(@Parameter()){
-        return null;
-    }
     @GetMapping("/customer/nm")
     public String findByName(@RequestParam (value = "name",required = true) String name){
         return new Gson().toJson(customerService.getByName(name));
@@ -38,8 +35,7 @@ public class CustomerController {
     public String findAll(){
         return new Gson().toJson(customerService.getAll());
     }
-    @GetMapping("" +
-            "")
+    @GetMapping("customer/name/email")
     public String findNameEmail(@RequestParam (value ="name",required = true) String name,@RequestParam (value = "email",required = true)String email){
         return new Gson().toJson(customerService.getByNameEmail(name,email));
     }

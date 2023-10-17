@@ -7,6 +7,8 @@ import com.example.shoppingjavaspringserver.model.request.CustomerRequest;
 import com.example.shoppingjavaspringserver.repositories.BrandRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BrandService {
     final BrandRepository brandRepository;
@@ -22,5 +24,11 @@ public class BrandService {
     public BrandEntity create(BrandRequest brandRequest){
         return brandRepository.save(brandRequest.toEntity());
     }
+    public BrandEntity findByName(String name) {
+        return brandRepository.findByName(name);
+    }
 
+    public BrandEntity updateBrand(BrandEntity brandEntity) {
+        return brandRepository.save(brandEntity);
+    }
 }
