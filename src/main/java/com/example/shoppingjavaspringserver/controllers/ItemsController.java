@@ -38,18 +38,25 @@ public class ItemsController {
     }
     @PostMapping("/items/create")
     @ResponseBody
-    public ItemsEntity createCustomer(@RequestBody ItemsRequest request){
+    public ItemsEntity createItems(@RequestBody ItemsRequest request){
         return itemsService.create(request);
     }
 
     @PutMapping("/items/updateItemsById")
-    public ItemsEntity updateCustomerById(@RequestParam(value="id", required=true) int id , @RequestBody ItemsRequest itemsRequest) {
+    public ItemsEntity updateItemsById(@RequestParam(value="id", required=true) int id , @RequestBody ItemsRequest itemsRequest) {
+        ItemsEntity updateItems = itemsService.findByID(id);
+        updateItems.setDiscount(itemsRequest.getDiscount());
+        updateItems.setStatus(itemsRequest.getStatus());
+        updateItems.setPrice(itemsRequest.getPrice());
+        return itemsService.save(updateItems) ;
+    }
+    @PutMapping("/items/updateItemsById")
+    public ItemsEntity updateQuantity(@RequestParam(value="id", required=true) int id , @RequestBody ItemsRequest itemsRequest) {
         ItemsEntity updateItems = itemsService.findByID(id);
         updateItems.setQuantity(itemsRequest.getQuantity());
-        updateItems.setDiscount(itemsRequest.getDiscount());
         return itemsService.save(updateItems) ;
-
     }
+
 
     @GetMapping("items/findAll")
     @ResponseBody
