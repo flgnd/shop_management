@@ -26,7 +26,6 @@ public class CustomerController {
     public CustomerEntity createCustomer(@RequestBody CustomerRequest request){
         return customerService.create(request);
     }
-    @PutMapping("/customer")
     @GetMapping("/customer/nm")
     public String findByName(@RequestParam (value = "name",required = true) String name){
         return new Gson().toJson(customerService.getByName(name));

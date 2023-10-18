@@ -9,6 +9,6 @@ public class CategoryRequest {
     public CategoryEntity toEntity(){
         CategoryEntity categoryEntity = new CategoryEntity();
         categoryEntity.setName(this.getName());
-        return  categoryEntity;
+        return categoryEntity;
     }
 }

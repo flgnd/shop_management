@@ -14,12 +14,12 @@ public class CategoryController {
     public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
-    @PostMapping("category/post")
+    @PostMapping("category")
     @ResponseBody
     public CategoryEntity createCategory(@RequestBody CategoryRequest request){
         return categoryService.create(request);
     }
-    @PutMapping("category/put")
+    @PutMapping("category")
     @ResponseBody
     public CategoryEntity updateCategory(@RequestParam(value= "name", required = true)String name,@RequestBody BrandRequest request){
         CategoryEntity updateCategoryEntityName = categoryService.findCategoryByName(name);
@@ -31,17 +31,18 @@ public class CategoryController {
 //    @ResponseBody
 //    public  boolean deleteCategoryByName(@RequestParam(value = "name",required = true) String name){
 //        CategoryEntity updateCategoryEntityName = categoryService.findCategoryByName(name);
-//        return categoryService.deleteCategoryBy
+//        return categoryService.deleteCategoryByName(name);
 //    }
-    @GetMapping("category/get/name")
+    @GetMapping("category")
     @ResponseBody
     public String getCategoryByName(@RequestParam(value= "name", required = true)String name){
         return new Gson().toJson(categoryService.getCategoryByName(name));
     }
-    @DeleteMapping("category/delete/id")
+    @DeleteMapping("category")
     @ResponseBody
     public boolean deleteCategoryById(@RequestParam(value = "id" ,required = true) int id){
         return  categoryService.deleteCategoryById(id);
     }
+
 
 }
