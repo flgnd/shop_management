@@ -16,23 +16,23 @@ public class ProductsController {
         this.productsService = productsService;
     }
 
-    @GetMapping("products/abc")
+    @GetMapping("products/findByID")
     @ResponseBody
     public String getProducts(@RequestParam(value="id", required=true) int id){
         return new Gson().toJson(productsService.getById(id));
     }
-    @GetMapping("products/abd")
+    @GetMapping("products/findByName")
     @ResponseBody
     public String getProducts(@RequestParam(value="name", required=true) String name){
         return new Gson().toJson(productsService.getByName(name));
     }
-    @GetMapping("products/all")
+    @GetMapping("products/getAll")
     @ResponseBody
-    public String getALLProducts(){
+    public String getAllProducts(){
         return new Gson().toJson(productsService.getAll());
     }
 
-    @PostMapping("/products")
+    @PostMapping("/products/creat")
     @ResponseBody
     public ProductsEntity createProducts(@RequestBody ProductsRequest request){
         return productsService.create(request);
@@ -44,7 +44,14 @@ public class ProductsController {
 //                .orElseThrow(()-> new ResourceNotFoundException("Employee not exist with id: " + id));
 
         updateProducts.setName(productsRequest.getName());
+        return productsService.save(updateProducts) ;
+    }
+    @PutMapping("/products/name")
+    public ProductsEntity updateProducts(@RequestParam(value = "name") String name, @RequestBody ProductsRequest productsRequest){
+        ProductsEntity updateProducts = productsService.findByNameMethodPut(name);
+//                .orElseThrow(()-> new ResourceNotFoundException("Employee not exist with id: " + id));
 
+        updateProducts.setName(productsRequest.getName());
         return productsService.save(updateProducts) ;
     }
 }

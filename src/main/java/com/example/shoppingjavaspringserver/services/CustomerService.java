@@ -24,7 +24,7 @@ public class CustomerService {
         return customerRepository.findByName(name);
     }
     public CustomerEntity getByEmail(String email){
-        return customerRepository.myCustomQuery(email);
+        return customerRepository.findByEmail(email);
     }
 
     public CustomerEntity create(CustomerRequest customerRequest){
@@ -47,8 +47,8 @@ public class CustomerService {
         return customerRepository.findAll() ;
     }
 
-    public CustomerEntity findByName(String name) {
-        return customerRepository.findByNameOfMethodPut(name);
+    public CustomerEntity findByUsername(String username) {
+        return customerRepository.findByUsername(username);
     }
 
 

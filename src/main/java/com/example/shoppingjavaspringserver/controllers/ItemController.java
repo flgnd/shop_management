@@ -22,14 +22,14 @@ public class ItemController {
         return new Gson().toJson(itemService.getById(id));
     }
 
-    @PostMapping("/item")
+    @PostMapping("/item/create")
     @ResponseBody
     public ItemEntity createItem(@RequestBody ItemRequest request){
         return itemService.create(request);
     }
 
-    @PutMapping("/item/abc")
-    public ItemEntity updateCustomerByName(@RequestParam(value="name", required=true) String name , @RequestBody ItemRequest itemRequest) {
+    @PutMapping("/item/updateByName")
+    public ItemEntity updateItemByName(@RequestParam(value="name", required=true) String name , @RequestBody ItemRequest itemRequest) {
         ItemEntity updateItem = itemService.findByName(name);
         updateItem.setName(itemRequest.getName());
         updateItem.setImage(itemRequest.getImage());

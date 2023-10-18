@@ -40,7 +40,7 @@ public class ItemsService {
     }
 
     public ItemsEntity findByID(int id) {
-        return itemsRepository.findByNameOfMethodPut(id);
+        return itemsRepository.findByIdOfMethodPut(id);
     }
 
     public ItemsEntity save(ItemsEntity updateItems) {

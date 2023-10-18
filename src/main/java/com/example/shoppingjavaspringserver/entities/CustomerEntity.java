@@ -21,6 +21,15 @@ public class CustomerEntity {
     @Basic
     @Column(name = "address")
     private String address;
+    @Basic
+    @Column(name = "phone")
+    private String phone;
+    @Basic
+    @Column(name = "password")
+    private String password;
+    @Basic
+    @Column(name = "username")
+    private String username;
 
     public int getId() {
         return id;
@@ -45,8 +54,6 @@ public class CustomerEntity {
     public void setPhoneNumber(Integer phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-
 
     public String getEmail() {
         return email;
@@ -86,5 +93,29 @@ public class CustomerEntity {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

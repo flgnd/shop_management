@@ -5,15 +5,19 @@ import lombok.Data;
 
 @Data
 public class CustomerRequest {
-    int phoneNumber;
+    String phone;
     String name;
     String email;
+    String username ;
+    String password ;
 
     public CustomerEntity toEntity(){
         CustomerEntity customerEntity = new CustomerEntity();
         customerEntity.setName(this.getName());
-        customerEntity.setPhoneNumber(this.getPhoneNumber());
+        customerEntity.setPhone(this.getPhone());
         customerEntity.setEmail(this.getEmail());
+        customerEntity.setUsername(this.getUsername());
+        customerEntity.setPassword(this.getPassword());
         System.out.println(new Gson().toJson(customerEntity));
 
         return customerEntity;

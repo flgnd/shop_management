@@ -11,10 +11,10 @@ import java.util.List;
 public interface CustomerRepository extends JpaRepository<CustomerEntity, Integer> {
     List<CustomerEntity> findByName(String name);
     @Query("select u from CustomerEntity u where u.email = :email")
-    CustomerEntity myCustomQuery(@Param("email") String email);
+    CustomerEntity findByEmail(@Param("email") String email);
 
-    @Query("SELECT u FROM CustomerEntity u WHERE u.name = :name")
-    CustomerEntity findByNameOfMethodPut(@Param("name") String name);
+    @Query("SELECT u FROM CustomerEntity u WHERE u.username = :username")
+    CustomerEntity findByUsername(@Param("username") String username);
 
 
 

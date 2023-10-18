@@ -17,50 +17,49 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping("customer/abc")
+    @GetMapping("customer/findByID")
     @ResponseBody
     public String getCustomer(@RequestParam(value="id", required=true) int id){
         return new Gson().toJson(customerService.getById(id));
     }
-    @GetMapping("customer/abd")
+    @GetMapping("customer/findByName")
     @ResponseBody
     public String getCustomer(@RequestParam(value="name", required=true) String name){
         return new Gson().toJson(customerService.getByName(name));
     }
-    @GetMapping("customer/abe")
+    @GetMapping("customer/findByEmail")
     @ResponseBody
     public String getCustomerbyEmail(@RequestParam(value="email", required=true) String email){
         return new Gson().toJson(customerService.getByEmail(email));
     }
-    @GetMapping("customer/all")
+    @GetMapping("customer/getAll")
     @ResponseBody
     public String getALLCustomer(){
         return new Gson().toJson(customerService.getAll());
     }
 
 
-    @PostMapping("/customer")
+    @PostMapping("/customer/creeat")
     @ResponseBody
     public CustomerEntity createCustomer(@RequestBody CustomerRequest request){
         return customerService.create(request);
     }
 
-    @PutMapping("/customer/{id}")
+    @PutMapping("/customer/updateById/{id}")
     public CustomerEntity updateCustomer(@PathVariable int id, @RequestBody CustomerRequest customerRequest){
         CustomerEntity updateCustomer = customerService.findById(id);
-//                .orElseThrow(()-> new ResourceNotFoundException("Employee not exist with id: " + id));
-
         updateCustomer.setName(customerRequest.getName());
-
+        updateCustomer.setEmail(customerRequest.getEmail());
+        updateCustomer.setPhone(customerRequest.getPhone());
         return customerService.save(updateCustomer) ;
     }
-    @PutMapping("/customer/ade")
-    public CustomerEntity updateCustomerByName(@RequestParam(value="namex", required=true) String namex ,@RequestBody CustomerRequest customerRequest) {
-        CustomerEntity updateByNameCustomer = customerService.findByName(namex);
-        updateByNameCustomer.setName(customerRequest.getName());
-        updateByNameCustomer.setEmail(customerRequest.getEmail());
-        updateByNameCustomer.setPhoneNumber(customerRequest.getPhoneNumber());
-        return customerService.save(updateByNameCustomer) ;
+    @PutMapping("/customer/updateByUsername")
+    public CustomerEntity updateCustomerByUsername(@RequestParam(value="username", required=true) String username ,@RequestBody CustomerRequest customerRequest) {
+        CustomerEntity updateCustomer = customerService.findByUsername(username);
+        updateCustomer.setName(customerRequest.getName());
+        updateCustomer.setEmail(customerRequest.getEmail());
+        updateCustomer.setPhone(customerRequest.getPhone());
+        return customerService.save(updateCustomer) ;
 
     }
 }

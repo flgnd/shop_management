@@ -44,4 +44,8 @@ public class ProductsService {
     public List<ProductsEntity> getAll() {
         return productsRepository.findAll() ;
     }
+
+    public ProductsEntity findByNameMethodPut(String name) {
+        return productsRepository.findByNameMethodPut(name);
+    }
 }
