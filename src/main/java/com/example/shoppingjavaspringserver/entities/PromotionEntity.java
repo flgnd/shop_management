@@ -2,7 +2,7 @@ package com.example.shoppingjavaspringserver.entities;
 
 import jakarta.persistence.*;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.Objects;
 
 @Entity
@@ -23,7 +23,7 @@ public class PromotionEntity {
     private int availability;
     @Basic
     @Column(name = "date")
-    private Timestamp date;
+    private Date date;
     @Basic
     @Column(name = "status")
     private String status;
@@ -60,11 +60,11 @@ public class PromotionEntity {
         this.availability = availability;
     }
 
-    public Timestamp getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
