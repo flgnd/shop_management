@@ -6,7 +6,7 @@ import com.google.gson.Gson;
 public class Test {
     public static void main(String[] args) {
         CustomerRequest customerRequest = new CustomerRequest();
-        customerRequest.setPhoneNumber(1);
+        customerRequest.setPhone("1");
         customerRequest.setName("Khoa Tran");
         customerRequest.setEmail("KhoaTran.nd1102@gmail.com");
 

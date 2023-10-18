@@ -1,19 +1,21 @@
 package com.example.shoppingjavaspringserver.controllers;
 
-import com.example.shoppingjavaspringserver.entities.ItemEntity;
 import com.example.shoppingjavaspringserver.entities.ItemsEntity;
-import com.example.shoppingjavaspringserver.model.request.ItemRequest;
 import com.example.shoppingjavaspringserver.model.request.ItemsRequest;
 import com.example.shoppingjavaspringserver.services.ItemsService;
+import com.example.shoppingjavaspringserver.services.InputService;
+import com.example.shoppingjavaspringserver.model.request.InputRequest;
 import com.google.gson.Gson;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ItemsController {
     final ItemsService itemsService;
+    final InputService inputService ;
 
-    public ItemsController(ItemsService itemsService) {
+    public ItemsController(ItemsService itemsService, InputService inputService) {
         this.itemsService = itemsService;
+        this.inputService = inputService;
     }
 
     @GetMapping("/items/{id}")
@@ -50,14 +52,13 @@ public class ItemsController {
         updateItems.setPrice(itemsRequest.getPrice());
         return itemsService.save(updateItems) ;
     }
-    @PutMapping("/items/updateItemsById")
-    public ItemsEntity updateQuantity(@RequestParam(value="id", required=true) int id , @RequestBody ItemsRequest itemsRequest) {
+    @PutMapping("/items/updateItemQuantityById")
+    public ItemsEntity updateQuantity(@RequestParam(value="id", required=true) int id ,  @RequestBody InputRequest inputRequest) {
         ItemsEntity updateItems = itemsService.findByID(id);
-        updateItems.setQuantity(itemsRequest.getQuantity());
+        updateItems.setQuantity(inputRequest.getInputQuantity() + updateItems.getQuantity());
+        inputService.create(inputRequest);
         return itemsService.save(updateItems) ;
     }
-
-
     @GetMapping("items/findAll")
     @ResponseBody
     public String getAllItems(){
