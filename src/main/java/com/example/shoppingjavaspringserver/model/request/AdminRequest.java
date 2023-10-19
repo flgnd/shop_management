@@ -9,17 +9,19 @@ public class AdminRequest {
     String name;
     int phone;
     String userName;
-    String pass;
-    String registrationDate;
+    String password;
+    //
+    Timestamp registrationDate = new Timestamp(System.currentTimeMillis());
     public AdminEntity toEntity(){
-        LocalDateTime dateTime = LocalDateTime.parse(this.getRegistrationDate());
+       //LocalDateTime dateTime = LocalDateTime.parse(this.getRegistrationDate());
         AdminEntity adminEntity = new AdminEntity();
         adminEntity.setName(this.getName());
         adminEntity.setPhone(this.getPhone());
-        adminEntity.setPassword(this.getPass());
+        adminEntity.setPassword(this.getPassword());
         adminEntity.setUserName(this.getUserName());
-        adminEntity.setRegistrationDate(Timestamp.valueOf(dateTime));
-        System.out.println(new Gson().toJson(adminEntity));
+        adminEntity.setRegistrationDate(this.getRegistrationDate());
+        //adminEntity.setRegistrationDate(Timestamp.valueOf(dateTime));
+        //System.out.println(new Gson().toJson(adminEntity));
         return adminEntity;
     }
 }

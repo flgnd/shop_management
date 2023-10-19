@@ -17,14 +17,28 @@ public class AdminController {
     public String getAdmin(@PathVariable("id")int id){
         return new Gson().toJson(adminService.getById(id));
     }
-    public AdminEntity createAdmin(@RequestBody AdminRequest request){
-        return adminService.create(request);
+    @PostMapping("/admin")
+    @ResponseBody
+    public AdminEntity createAdmin(@RequestBody AdminRequest adminRequest){
+        return adminService.create(adminRequest);
     }
     @PutMapping("admin")
-    public AdminEntity updateAdmin(){
-        return null;
+    @ResponseBody
+    public AdminEntity updateAdmin(@RequestParam(value= "id", required = true)int id,@RequestBody AdminRequest adminRequest){
+        AdminEntity adminEntity = adminService.getById(id);
+        adminEntity.setName(adminRequest.getName());
+        adminEntity.setPhone(adminRequest.getPhone());
+        adminEntity.setUserName(adminRequest.getUserName());
+        adminEntity.setPassword(adminRequest.getPassword());
+        adminEntity.setRegistrationDate(adminRequest.getRegistrationDate());
+        return adminService.updateAdmin(adminEntity);
     }
-
+    @DeleteMapping("admin")
+    @ResponseBody
+    public boolean deleteAdmin(@RequestParam(value = "id",required = true) int id){
+        AdminEntity adminEntity = adminService.getById(id);
+        return adminService.deleteAdmin(id);
+    }
 
 }
 

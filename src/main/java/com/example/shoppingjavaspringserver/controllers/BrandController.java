@@ -14,17 +14,17 @@ public class BrandController {
     public BrandController(BrandService brandService) {
         this.brandService = brandService;
     }
-    @GetMapping("brand/get/{id}")
+    @GetMapping("brand/{id}")
     @ResponseBody
     public String getBrand(@PathVariable("id")int id){
         return new Gson().toJson(brandService.getById(id));
     }
-    @PostMapping("brand/post")
+    @PostMapping("brand")
     @ResponseBody
     public BrandEntity createBrand(@RequestBody BrandRequest request){
         return brandService.create(request);
     }
-    @PutMapping("brand/kbpn")
+    @PutMapping("brand")
     @ResponseBody
     public BrandEntity updateBand(@RequestParam(value= "name", required = true)String name,@RequestBody BrandRequest request){
         BrandEntity updateBrandEntityName = brandService.findByName(name);
@@ -35,7 +35,7 @@ public class BrandController {
 
         return brandService.updateBrand(updateBrandEntityName);
     }
-    @DeleteMapping("brand/kdnp")
+    @DeleteMapping("brand")
     @ResponseBody boolean deleteBrand(@RequestParam(value= "name", required = true)String name){
         BrandEntity updateBrandEntityName = brandService.findByName(name);
         return brandService.deleteBrand(updateBrandEntityName);

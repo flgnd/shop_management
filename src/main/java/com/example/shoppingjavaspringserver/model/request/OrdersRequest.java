@@ -13,7 +13,7 @@ public class OrdersRequest {
     String paymentDetails;
     public OrdersEntity toEntity(){
         OrdersEntity ordersEntity = new OrdersEntity();
-        ordersEntity.setDate(Date.valueOf(this.getDate()));HHHHH
+        ordersEntity.setDate(Date.valueOf(this.getDate()));
         ordersEntity.setPaymentMethod(this.getPaymentMethod());
         ordersEntity.setPaymentDetails(this.getPaymentDetails());
         System.out.println(new Gson().toJson(ordersEntity));
