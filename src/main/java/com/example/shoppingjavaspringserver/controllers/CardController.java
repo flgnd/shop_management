@@ -15,12 +15,28 @@ public class CardController {
     @ResponseBody
     public String getCard(@PathVariable("id")int id) {return new Gson().toJson(cardService.getById(id));}
 
-    @PostMapping("/card")
+    @PostMapping("card")
     @ResponseBody
     public CardEntity createCard(@RequestBody CardRequest request){
         return cardService.create(request);
     }
-    @PutMapping("/card")
-    public CardEntity updateCard(){return null;}
+    @PutMapping("card")
+    @ResponseBody
+    public CardEntity updateCard(@RequestParam (value = "id", required = true) int id,@RequestBody CardRequest newQuantity)
+    {
+        CardEntity cardEntity = cardService.getById(id);
+        cardEntity.setQuantity(newQuantity.getQuantity());
+        return cardService.updateCard(cardEntity);
+    }
 
+    @GetMapping("/card/quantity")
+    public String getCardQuantity(@RequestParam("quantity")int quantity) {
+        return new Gson().toJson(cardService.getByQuantity(quantity));
+    }
+    @DeleteMapping("card")
+    @ResponseBody
+    public void deleteCard (@RequestParam(value = "id", required = true) int id)
+    {
+        cardService.deleteCard(id);
+    }
 }

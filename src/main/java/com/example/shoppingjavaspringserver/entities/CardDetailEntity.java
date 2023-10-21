@@ -27,6 +27,10 @@ public class CardDetailEntity {
         return price;
     }
 
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }

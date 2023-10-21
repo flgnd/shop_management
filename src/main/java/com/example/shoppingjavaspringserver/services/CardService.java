@@ -13,4 +13,16 @@ public class CardService    {
     public  CardEntity create(CardRequest cardRequest){
         return cardRepository.save(cardRequest.toEntity());
     }
+
+    public CardEntity getByQuantity(int quantity) {
+        return cardRepository.getByQuantity(quantity);
+    }
+
+    public void deleteCard(int id) {
+        cardRepository.deleteById(id);
+    }
+
+    public CardEntity updateCard(CardEntity cardEntity) {
+        return cardRepository.save(cardEntity);
+    }
 }
