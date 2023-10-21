@@ -10,7 +10,6 @@ public class CardRequest {
     public CardEntity toEntity(){
         CardEntity cardEntity = new CardEntity();
         cardEntity.setQuantity(this.getQuantity());
-        System.out.println(new Gson().toJson(cardEntity));
         return cardEntity;
     }
 }

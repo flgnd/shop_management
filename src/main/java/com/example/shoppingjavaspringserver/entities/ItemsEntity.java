@@ -13,16 +13,16 @@ public class ItemsEntity {
     private int id;
     @Basic
     @Column(name = "price")
-    private Integer price;
+    private int price;
     @Basic
     @Column(name = "quantity")
-    private Integer quantity;
+    private int quantity;
     @Basic
     @Column(name = "discount")
     private Integer discount;
     @Basic
     @Column(name = "status")
-    private Integer status;
+    private String status;
 
     public int getId() {
         return id;
@@ -32,7 +32,7 @@ public class ItemsEntity {
         this.id = id;
     }
 
-    public Integer getPrice() {
+    public int getPrice() {
         return price;
     }
 
@@ -40,11 +40,19 @@ public class ItemsEntity {
         this.price = price;
     }
 
-    public Integer getQuantity() {
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getQuantity() {
         return quantity;
     }
 
     public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -56,11 +64,11 @@ public class ItemsEntity {
         this.discount = discount;
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -69,7 +77,7 @@ public class ItemsEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ItemsEntity that = (ItemsEntity) o;
-        return id == that.id && Objects.equals(price, that.price) && Objects.equals(quantity, that.quantity) && Objects.equals(discount, that.discount) && Objects.equals(status, that.status);
+        return id == that.id && quantity == that.quantity && Objects.equals(price, that.price) && Objects.equals(discount, that.discount) && Objects.equals(status, that.status);
     }
 
     @Override
