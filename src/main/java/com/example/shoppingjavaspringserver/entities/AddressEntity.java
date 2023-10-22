@@ -1,9 +1,6 @@
 package com.example.shoppingjavaspringserver.entities;
-
 import jakarta.persistence.*;
-
 import java.util.Objects;
-
 @Entity
 @Table(name = "address", schema = "shopmanagement", catalog = "")
 public class AddressEntity {

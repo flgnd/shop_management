@@ -1,9 +1,8 @@
 package com.example.shoppingjavaspringserver.model.request;
 import com.example.shoppingjavaspringserver.entities.AdminEntity;
-import com.google.gson.Gson;
 import lombok.Data;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
+
 @Data
 public class AdminRequest {
     String name;

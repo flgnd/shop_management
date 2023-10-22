@@ -20,7 +20,8 @@ public class AdminService {
         return adminRepository.save(adminRequest.toEntity());
     }
 
-    public AdminEntity updateAdmin(AdminEntity adminEntity) {
+    public AdminEntity updateAdmin(AdminEntity adminEntity)
+    {
         return adminRepository.save(adminEntity);
     }
 

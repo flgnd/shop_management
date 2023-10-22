@@ -30,7 +30,7 @@ public class SizeController {
 
     @DeleteMapping("size")
     @ResponseBody
-    public boolean deleteSize(String name) {
+    public boolean deleteSize(@RequestParam(value = "name",required = true) String name) {
         SizeEntity sizeEntity = sizeService.findByName(name);
         return sizeService.deleteSize(sizeEntity);
     }
@@ -39,6 +39,7 @@ public class SizeController {
     public String getSize(@PathVariable("id")int id){
         return new Gson().toJson(sizeService.getById(id));
     }
+
 }
 
 

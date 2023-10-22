@@ -17,5 +17,25 @@ public class OrderDetailsService {
     public OrderDetailsEntity createOrderDetails(OrderDetailsRequest orderDetailsRequest) {
         return orderDetailsRepository.save(orderDetailsRequest.toEntity());
     }
+
+    public OrderDetailsEntity findById(int id) {
+        return orderDetailsRepository.findById(id).get();
+    }
+
+    public boolean updataOrderDetails(OrderDetailsEntity orderDetailsEntity) {
+        try {
+            orderDetailsRepository.save(orderDetailsEntity);
+            return  true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    public void deleteOrderDetailsById(int id) {
+        orderDetailsRepository.deleteById(id);
+    }
+    public OrderDetailsEntity getById(int id) {
+        return orderDetailsRepository.findById(id).get();
+    }
+
 }
 

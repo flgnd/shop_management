@@ -7,6 +7,7 @@ import com.example.shoppingjavaspringserver.model.request.SizeRequest;
 import com.example.shoppingjavaspringserver.repositories.SizeRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class SizeService {
@@ -28,7 +29,7 @@ public class SizeService {
         return sizeRepository.save(sizeEntity);
     }
 
-    public boolean deleteSize(SizeEntity sizeEntity) {
+    public boolean deleteSize( SizeEntity sizeEntity) {
         try {
             sizeRepository.delete(sizeEntity);
             return true;

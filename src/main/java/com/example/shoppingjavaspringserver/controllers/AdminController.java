@@ -35,7 +35,7 @@ public class AdminController {
     }
     @DeleteMapping("admin")
     @ResponseBody
-    public boolean deleteAdmin(@RequestParam(value = "id",required = true) int id){
+    public boolean deleteAdmin(  int id){
         AdminEntity adminEntity = adminService.getById(id);
         return adminService.deleteAdmin(id);
     }
