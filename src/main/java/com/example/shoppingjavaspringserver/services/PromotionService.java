@@ -23,4 +23,16 @@ import java.util.List;
             return promotionRepository.findAll() ;
 
         }
+
+    public PromotionEntity save(PromotionEntity updatePromotion) {
+        return promotionRepository.save(updatePromotion);
     }
+
+    public PromotionEntity findByCode(String code) {
+        return promotionRepository.findByCodeMethodPut(code);
+    }
+
+    public PromotionEntity findByID(int id) {
+            return  promotionRepository.findById(id).get();
+    }
+}
